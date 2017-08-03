@@ -26,7 +26,7 @@ client.on('message', msg => {
   }
 });
 
-client.on('message', msg => {
+client.on('messageUpdate', function(oldMsg, msg) {
 
   // Debug
   // console.log('message: ' + msg.content + '  isAnO:' + msg.content.isAnO());
