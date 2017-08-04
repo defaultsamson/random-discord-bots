@@ -33,7 +33,7 @@ function check(msg) {
 
   // If the message is an "o"
   if (msg.content.isAnO()) {
-    
+
     // If the author has a timer on them already
     if (timers[msg.author.id]) {
       // If it's been less than the timer cooldown since the last "o"
@@ -42,7 +42,7 @@ function check(msg) {
         msg.delete();
       }
     }
-    
+
     // Reset the timer for every "o"
     timers[msg.author.id] = Date.now();
   }
@@ -61,8 +61,8 @@ String.prototype.isAnO = function () {
     while (text.contains(key)) text = text.replaceAll(key, hash[key]);
   }
 
-  // If the string contains "o" and no other real alphabet characters that aren't o
-  if (text.contains('o') && !/^([A-Za-z0-9]+)$/.test(text.replaceAll('o', ''))) {
+  // If the string contains "o" and no other real alphabet characters that aren't "o" or a space (hence the "\s")
+  if (text.contains('o') && !/^([A-Za-z0-9\s]+)$/.test(text.replaceAll('o', ''))) {
 
     // Last chance before confirming it's an "o". If the string is equal to anything in the whitelist, let it through
     for (i in whitelist) {
