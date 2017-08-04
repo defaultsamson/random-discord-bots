@@ -62,7 +62,7 @@ String.prototype.isAnO = function () {
   }
 
   // If the string contains "o" and no other real alphabet characters that aren't "o" or a space (hence the "\s")
-  if (text.contains('o') && !/^([A-Za-z0-9\s]+)$/.test(text.replaceAll('o', ''))) {
+  if (text.contains('o') && !/[A-Za-z0-9]/.test(text.replaceAll('o', ''))) {
 
     // Last chance before confirming it's an "o". If the string is equal to anything in the whitelist, let it through
     for (i in whitelist) {
